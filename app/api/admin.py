@@ -35,7 +35,7 @@ def set_coins(db, session):
                 error="Unspecified error.",
                 admin=admin.admin,
                 )
-    if not dpt:#Decrypt returns False if there was a padding exceptionu
+    if dpt is False:#Decrypt returns False if there was a padding exceptionu
         return template(
                 "profile",
                 user=admin,
