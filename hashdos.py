@@ -1,6 +1,8 @@
 from requests import codes, Session
 
-LOGIN_FORM_URL = "http://localhost:8080/login"
+with open('app/PORT_CONFIG.txt') as f:
+    PORT = int(f.read().strip())
+LOGIN_FORM_URL = f"http://localhost:{PORT}/login"
 
 #This function will send the login form
 #with the colliding parameters you specify.

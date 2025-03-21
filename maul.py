@@ -1,7 +1,9 @@
 from requests import codes, Session
 
-LOGIN_FORM_URL = "http://localhost:8080/login"
-SETCOINS_FORM_URL = "http://localhost:8080/setcoins"
+with open('app/PORT_CONFIG.txt') as f:
+    PORT = int(f.read().strip())
+LOGIN_FORM_URL = f"http://localhost:{PORT}/login"
+SETCOINS_FORM_URL = f"http://localhost:{PORT}/setcoins"
 
 def do_login_form(sess, username,password):
 	data_dict = {"username":username,\

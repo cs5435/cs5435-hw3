@@ -30,5 +30,13 @@ def run_server():
         engine,
         keyword='db',
     ))
-    run(host='0.0.0.0', port=8080)
+    for i in range(8080, 9000):
+        print(f'Trying port {i}...')
+        with open('app/PORT_CONFIG.txt', 'w') as f:
+            f.write(str(i))
+        try:
+            run(host='0.0.0.0', port=i)
+            break
+        except:
+            print(f'Port {i} is busy')
 
